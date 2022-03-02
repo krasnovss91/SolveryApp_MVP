@@ -6,6 +6,16 @@ import kotlinx.android.parcel.Parcelize
 import java.time.OffsetDateTime
 
 @Parcelize
+data class ProductViewState(
+    @DrawableRes val avatar: Int,
+    val name: String,
+    val producer: String,
+    val cost: Int,
+    val id: Int,
+    val offsetDateTime: OffsetDateTime
+):Parcelable
+
+@Parcelize
 data class Product(
     @DrawableRes val avatar: Int,
     val name: String,
