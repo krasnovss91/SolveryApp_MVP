@@ -146,20 +146,22 @@ val productList = mutableListOf(
     }
 
     override fun hideContent() {
-
+        showContent(false)
     }
 
     override fun showContent(content: List<ProductViewState>) {
-
-
+      showContent(true)
+      adapter.setProducts(content)
     }
 
     override fun showContent(show: Boolean) {
-
+        productList.isVisible = show
+        addButton.isVisible = show
     }
 
     override fun showError(show: Boolean) {
-
+        errorTitle.isVisible = show
+        reloadButton.isVisible = show
     }
 
 
