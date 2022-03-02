@@ -1,8 +1,11 @@
 package com.example.solveryapp_mvp
 
 import android.content.Intent
+import android.icu.text.CaseMap
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,19 +29,30 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
 
     private val adapter = ProductAdapter(this, this)
 
-    val productList = mutableListOf(
-        Product(R.drawable.ic_launcher_background, "Картофель", "ООО Интегра", 18, generateId()),
-        Product(R.drawable.ic_launcher_foreground, "Чай", "ИП Абрамян А.Г.", 9, generateId()),
-        Product(R.drawable.ic_launcher_background, "Яйца", "с.Зелёное", 22, generateId()),
-        Product(R.drawable.ic_launcher_foreground, "Молоко", "с.Зелёное", 20, generateId()),
-        Product(
-            R.drawable.ic_launcher_background,
-            "Макароны",
-            "Тольяттинский хлебозавод",
-            15,
-            generateId()
-        )
+    /*
+val productList = mutableListOf(
+    Product(R.drawable.ic_launcher_background, "Картофель", "ООО Интегра", 18, generateId()),
+    Product(R.drawable.ic_launcher_foreground, "Чай", "ИП Абрамян А.Г.", 9, generateId()),
+    Product(R.drawable.ic_launcher_background, "Яйца", "с.Зелёное", 22, generateId()),
+    Product(R.drawable.ic_launcher_foreground, "Молоко", "с.Зелёное", 20, generateId()),
+    Product(
+        R.drawable.ic_launcher_background,
+        "Макароны",
+        "Тольяттинский хлебозавод",
+        15,
+        generateId()
     )
+)
+     */
+    lateinit var productList: RecyclerView
+    lateinit var addButton: Button
+    lateinit var progress:ProgressBar
+    lateinit var errorTitle: TextView
+    lateinit var reloadButton: Button
+
+    private val presenter by lazy {
+        //StorePresenter.create(this)
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +63,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
             layoutManager = LinearLayoutManager(this@StoreActivity)
             adapter = this@StoreActivity.adapter
             this@StoreActivity.adapter.setProducts(productList)
+            
         }
 
 
@@ -90,16 +105,16 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
     }
 
 
-    override fun onSelect(product: Product) {
+    override fun onSelect(productViewState: ProductViewState) {
         val editIntent = Intent(this, EditActivity::class.java)
-        editIntent.putExtra(PRODUCT, product)
+        editIntent.putExtra(PRODUCT, productViewState)
         startActivityForResult(editIntent, REQUEST_CODE_EDIT)
     }
 
 
-    override fun onDelete(product: Product) {
-        productList.remove(product)
-        adapter.setProducts(productList)
+    override fun onDelete(productViewState: ProductViewState) {
+        productList.remove(productViewState)
+        //presenter.delete
     }
 
 }
