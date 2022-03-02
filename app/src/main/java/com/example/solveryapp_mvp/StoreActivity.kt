@@ -26,7 +26,7 @@ object Generator {
     }
 }
 
-class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, StoreContract {
+class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, StoreContract.View {
 
     private val adapter = ProductAdapter(this, this)
 

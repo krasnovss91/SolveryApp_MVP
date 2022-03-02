@@ -2,20 +2,37 @@ package com.example.solveryapp_mvp
 
 interface StoreContract {
 
-    fun showProgress()
+    interface View{
 
-    fun hideProgress()
+        fun showProgress()
 
-    fun showError()
+        fun hideProgress()
 
-    fun hideError()
+        fun showError()
 
-    fun hideContent()
+        fun hideError()
 
-    fun showContent(content: List<ProductViewState>)
+        fun hideContent()
 
-    fun showContent(show: Boolean)
+        fun showContent(content: List<ProductViewState>)
 
-    fun showError(show: Boolean)
+        fun showContent(show: Boolean)
+
+        fun showError(show: Boolean)
+
+    }
+
+    interface Presenter{
+        fun load()
+        fun reload()
+
+    }
+
+    interface Repository{
+        fun load():List<Product>
+
+    }
+
+
 
 }
