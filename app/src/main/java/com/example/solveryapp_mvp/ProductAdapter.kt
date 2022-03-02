@@ -9,11 +9,11 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
 interface OnProductSelected {
-    fun onSelect(product: Product)
+    fun onSelect(productViewState: ProductViewState)
 }
 
 interface OnProductDeleted {
-    fun onDelete(product: Product)
+    fun onDelete(productViewState: ProductViewState)
 }
 
 class ProductAdapter(
@@ -22,40 +22,40 @@ class ProductAdapter(
 ) :
     RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
 
-    private var products = emptyList<Product>()
+    private var products = emptyList<ProductViewState>()
 
-    fun setProducts(products: List<Product>) {
-        this.products = products
+    fun setProducts(productsViewStates: List<ProductViewState>) {
+        this.products = productsViewStates
         notifyDataSetChanged()
     }
 
-    fun itemUpdated(position: Int, products: List<Product>) {
-        this.products = products
+    fun itemUpdated(position: Int, productsViewStates: List<ProductViewState>) {
+        this.products = productsViewStates
         notifyItemChanged(position)
     }
 
-    fun itemDeleted(position: Int, products: List<Product>) {
-        this.products = products
+    fun itemDeleted(position: Int, productsViewStates: List<ProductViewState>) {
+        this.products = productsViewStates
         notifyItemChanged(position)
     }
 
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun setData(product: Product) {
-            itemView.findViewById<TextView>(R.id.name).text = product.name
-            itemView.findViewById<TextView>(R.id.producer).text = product.producer
-            itemView.findViewById<TextView>(R.id.cost).text = product.cost.toString()
+        fun setData(productViewState: ProductViewState) {
+            itemView.findViewById<TextView>(R.id.name).text = productViewState.name
+            itemView.findViewById<TextView>(R.id.producer).text = productViewState.producer
+            itemView.findViewById<TextView>(R.id.cost).text = productViewState.cost.toString()
 
-            val drawable = ContextCompat.getDrawable(itemView.context, product.avatar)
+            val drawable = ContextCompat.getDrawable(itemView.context, productViewState.avatar)
             itemView.findViewById<ImageView>(R.id.avatar).setImageDrawable(drawable)
 
             itemView.setOnClickListener {
-                listener.onSelect(product)
+                listener.onSelect(productViewState)
             }
 
             itemView.findViewById<View>(R.id.deleteItemButton).setOnClickListener {
-                deleteListener.onDelete(product)
+                deleteListener.onDelete(productViewState)
             }
 
         }
