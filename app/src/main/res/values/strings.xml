@@ -10,4 +10,5 @@
     <string name="producerEdit">Производитель</string>
     <string name="costEdit">Стоимость</string>
     <string name="saveProduct">Сохранить</string>
+    <string name="try_again">Перезагрузить</string>
 </resources>
