@@ -1,13 +1,17 @@
 package com.example.solveryapp_mvp
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import java.time.OffsetDateTime
 
 class EditActivity : AppCompatActivity() {
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
@@ -27,16 +31,17 @@ class EditActivity : AppCompatActivity() {
 
         val image = product?.avatar
 
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, StoreActivity::class.java)
 
         editButton.setOnClickListener {
             val result = image?.let {
-                Product(
+                ProductViewState(
                     it,
                     name.text.toString(),
                     producer.text.toString(),
                     cost.text.toString().toInt(),
-                    product.id
+                    product.id,
+                    OffsetDateTime.now(),
                 )
             }
             intent.putExtra(PRODUCT, result)
