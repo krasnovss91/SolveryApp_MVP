@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SolveryApp_MVP">
         <activity
-            android:name=".EditActivity"
+            android:name=".view.EditActivity"
             android:exported="false" />
         <activity
-            android:name=".ProductActivity"
+            android:name=".view.ProductActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".StoreActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
