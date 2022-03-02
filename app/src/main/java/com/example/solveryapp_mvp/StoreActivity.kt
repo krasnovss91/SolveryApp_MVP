@@ -11,6 +11,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.solveryapp_mvp.Generator.generateId
+import com.example.solveryapp_mvp.StoreRepository.Companion.create
 
 
 const val PRODUCT = "KEY_PRODUCT"
@@ -40,7 +41,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     lateinit var reloadButton: Button
 
     private val presenter by lazy {
-     //   StorePresenter.create(this)
+        StorePresenter.create(this)
     }
 
 
@@ -71,6 +72,10 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
         addButton.setOnClickListener {
             startActivityForResult(saveIntent, REQUEST_CODE_ADD)
+        }
+
+        reloadButton.setOnClickListener {
+            presenter.reload()
         }
     }
 
@@ -111,8 +116,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
 
     override fun onDelete(productViewState: ProductViewState) {
-        productList.remove(productViewState)
-        //presenter.delete
+        presenter.delete(productViewState)
     }
 
     override fun showProgress() {
