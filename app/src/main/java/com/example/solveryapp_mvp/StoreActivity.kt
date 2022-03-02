@@ -22,7 +22,7 @@ object Generator {
     }
 }
 
-class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
+class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
 
     private val adapter = ProductAdapter(this, this)
 
@@ -46,9 +46,9 @@ class MainActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
         setContentView(R.layout.activity_main)
 
         findViewById<RecyclerView>(R.id.productList).apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = this@MainActivity.adapter
-            this@MainActivity.adapter.setProducts(productList)
+            layoutManager = LinearLayoutManager(this@StoreActivity)
+            adapter = this@StoreActivity.adapter
+            this@StoreActivity.adapter.setProducts(productList)
         }
 
 
