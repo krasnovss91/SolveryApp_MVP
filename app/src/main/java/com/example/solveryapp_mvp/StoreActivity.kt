@@ -31,19 +31,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     private val adapter = ProductAdapter(this, this)
 
     /*
-val productList = mutableListOf(
-    Product(R.drawable.ic_launcher_background, "Картофель", "ООО Интегра", 18, generateId()),
-    Product(R.drawable.ic_launcher_foreground, "Чай", "ИП Абрамян А.Г.", 9, generateId()),
-    Product(R.drawable.ic_launcher_background, "Яйца", "с.Зелёное", 22, generateId()),
-    Product(R.drawable.ic_launcher_foreground, "Молоко", "с.Зелёное", 20, generateId()),
-    Product(
-        R.drawable.ic_launcher_background,
-        "Макароны",
-        "Тольяттинский хлебозавод",
-        15,
-        generateId()
-    )
-)
+
      */
     lateinit var productList: RecyclerView
     lateinit var addButton: Button
@@ -52,7 +40,7 @@ val productList = mutableListOf(
     lateinit var reloadButton: Button
 
     private val presenter by lazy {
-        //StorePresenter.create(this)
+     //   StorePresenter.create(this)
     }
 
 
@@ -61,7 +49,7 @@ val productList = mutableListOf(
         setContentView(R.layout.activity_main)
 
         SetUpViews()
-        //presener.load()
+        presenter.load()
 /*
         findViewById<RecyclerView>(R.id.productList).apply {
             layoutManager = LinearLayoutManager(this@StoreActivity)
