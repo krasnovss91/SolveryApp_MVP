@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">SolveryApp_MVP</string>
+    <string name="name">Наименование</string>
+    <string name="producer">Производитель</string>
+    <string name="cost">Стоимость</string>
+    <string name="delete_item">Удалить</string>
+    <string name="addProduct">Добавить товар</string>
+    <string name="saveProduct1">Сохранить</string>
+    <string name="nameEdit">Наименование</string>
+    <string name="producerEdit">Производитель</string>
+    <string name="costEdit">Стоимость</string>
+    <string name="saveProduct">Сохранить</string>
 </resources>
