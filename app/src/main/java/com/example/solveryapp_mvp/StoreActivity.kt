@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.solveryapp_mvp.Generator.generateId
@@ -25,7 +26,7 @@ object Generator {
     }
 }
 
-class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted {
+class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, StoreContract {
 
     private val adapter = ProductAdapter(this, this)
 
@@ -46,7 +47,7 @@ val productList = mutableListOf(
      */
     lateinit var productList: RecyclerView
     lateinit var addButton: Button
-    lateinit var progress:ProgressBar
+    lateinit var progress: ProgressBar
     lateinit var errorTitle: TextView
     lateinit var reloadButton: Button
 
@@ -85,7 +86,7 @@ val productList = mutableListOf(
         }
     }
 
-    private fun SetUpViews(){
+    private fun SetUpViews() {
         findViewById<RecyclerView>(R.id.productList).apply {
             layoutManager = LinearLayoutManager(this@StoreActivity)
             adapter = this@StoreActivity.adapter
@@ -125,5 +126,41 @@ val productList = mutableListOf(
         productList.remove(productViewState)
         //presenter.delete
     }
+
+    override fun showProgress() {
+        progress.isVisible = true
+    }
+
+    override fun hideProgress() {
+        progress.isVisible = true
+    }
+
+    override fun showError() {
+        showError(true)
+    }
+
+
+
+    override fun hideError() {
+        showError(false)
+    }
+
+    override fun hideContent() {
+
+    }
+
+    override fun showContent(content: List<ProductViewState>) {
+
+
+    }
+
+    override fun showContent(show: Boolean) {
+
+    }
+
+    override fun showError(show: Boolean) {
+
+    }
+
 
 }

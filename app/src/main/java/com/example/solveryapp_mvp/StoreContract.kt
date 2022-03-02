@@ -17,4 +17,5 @@ interface StoreContract {
     fun showContent(show: Boolean)
 
     fun showError(show: Boolean)
+
 }
