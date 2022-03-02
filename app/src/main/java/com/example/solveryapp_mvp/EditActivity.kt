@@ -22,7 +22,7 @@ class EditActivity : AppCompatActivity() {
 
         val editButton = findViewById<Button>(R.id.saveProduct1)
         val product =
-            intent.getParcelableExtra<Product>(PRODUCT)
+            intent.getParcelableExtra<ProductViewState>(PRODUCT)
 
 
         name.setText(product?.name)
