@@ -1,12 +1,16 @@
 package com.example.solveryapp_mvp
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import java.time.OffsetDateTime
 
 class ProductActivity : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -19,12 +23,13 @@ class ProductActivity : AppCompatActivity() {
         val saveProduct = findViewById<Button>(R.id.saveProduct)
 
         saveProduct.setOnClickListener {
-            val product = Product(
+            val product = ProductViewState(
                 R.drawable.ic_launcher_background,
                 name.text.toString(),
                 producer.text.toString(),
                 cost.text.toString().toInt(),
-                Generator.generateId()
+                Generator.generateId(),
+                OffsetDateTime.now()
             )
             val intent = Intent()
 
