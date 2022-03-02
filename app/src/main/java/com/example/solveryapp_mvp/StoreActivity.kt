@@ -59,21 +59,36 @@ val productList = mutableListOf(
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        SetUpViews()
+        //presener.load()
+/*
         findViewById<RecyclerView>(R.id.productList).apply {
             layoutManager = LinearLayoutManager(this@StoreActivity)
             adapter = this@StoreActivity.adapter
             this@StoreActivity.adapter.setProducts(productList)
-            
+
         }
+
+ */
 
 
         val addButton = findViewById<Button>(R.id.addProduct)
+        progress = findViewById(R.id.progress)
+        errorTitle = findViewById(R.id.errorTitle)
+        reloadButton = findViewById(R.id.reload)
 
 
         val saveIntent = Intent(this, ProductActivity::class.java)
 
         addButton.setOnClickListener {
             startActivityForResult(saveIntent, REQUEST_CODE_ADD)
+        }
+    }
+
+    private fun SetUpViews(){
+        findViewById<RecyclerView>(R.id.productList).apply {
+            layoutManager = LinearLayoutManager(this@StoreActivity)
+            adapter = this@StoreActivity.adapter
         }
     }
 
@@ -87,18 +102,12 @@ val productList = mutableListOf(
         if (data == null) {
             return
         }
-        when (requestCode) {
+        when (requestCode) {//реализовать реакцию на эти коды состояний
             REQUEST_CODE_ADD -> {
-                val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
-                productList.add(product)
-                adapter.setProducts(productList)
+
             }
             REQUEST_CODE_EDIT -> {
-                val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
-                val oldProduct = productList.find { it.id == product.id } ?: return
-                val position = productList.indexOf(oldProduct)
-                productList[position] = product
-                adapter.setProducts(productList)
+
             }
         }
 
