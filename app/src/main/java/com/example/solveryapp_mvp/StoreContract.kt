@@ -17,7 +17,7 @@ interface StoreContract {
 
         fun hideContent()
 
-        fun showContent(content: List<Product>)
+        fun showContent(content: List<Product>)//здесь всё правильно
 
         fun showContent(show: Boolean)
 

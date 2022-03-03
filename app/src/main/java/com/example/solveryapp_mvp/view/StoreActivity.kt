@@ -91,10 +91,10 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
             return
         }
         when (requestCode) {//реализовать реакцию на эти коды состояний
-            REQUEST_CODE_ADD -> {
+            REQUEST_CODE_ADD -> {//добавляем элемент в список и обновляем его
 
             }
-            REQUEST_CODE_EDIT -> {
+            REQUEST_CODE_EDIT -> {//берём элемент из списка, обновляем его, и обновляем список
 
             }
         }
@@ -126,7 +126,6 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     }
 
 
-
     override fun hideError() {
         showError(false)
     }
@@ -137,7 +136,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
     override fun showContent(content: List<Product>) {
       showContent(true)
-      adapter.setProducts(content)
+      adapter.setProducts(content)//несоответсвие типов
     }
 
     override fun showContent(show: Boolean) {
