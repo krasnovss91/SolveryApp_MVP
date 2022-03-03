@@ -17,11 +17,12 @@ interface StoreContract {
 
         fun hideContent()
 
-        fun showContent(content: List<ProductViewState>)
+        fun showContent(content: List<Product>)
 
         fun showContent(show: Boolean)
 
         fun showError(show: Boolean)
+
 
     }
 

@@ -10,8 +10,10 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.solveryapp_mvp.*
+import com.example.solveryapp_mvp.entity.Product
 import com.example.solveryapp_mvp.entity.ProductViewState
 import com.example.solveryapp_mvp.presenter.StorePresenter
+import com.example.solveryapp_mvp.repository.StoreRepository.Companion.create
 import com.example.solveryapp_mvp.view.adapter.OnProductDeleted
 import com.example.solveryapp_mvp.view.adapter.OnProductSelected
 import com.example.solveryapp_mvp.view.adapter.ProductAdapter
@@ -142,7 +144,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         showContent(false)
     }
 
-    override fun showContent(content: List<ProductViewState>) {
+    override fun showContent(content: List<Product>) {
       showContent(true)
       adapter.setProducts(content)
     }
