@@ -1,4 +1,4 @@
-package com.example.solveryapp_mvp
+package com.example.solveryapp_mvp.entity
 
 import android.os.Parcelable
 import androidx.annotation.DrawableRes

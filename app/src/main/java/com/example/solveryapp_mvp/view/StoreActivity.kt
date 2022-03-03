@@ -1,7 +1,6 @@
-package com.example.solveryapp_mvp
+package com.example.solveryapp_mvp.view
 
 import android.content.Intent
-import android.icu.text.CaseMap
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ProgressBar
@@ -10,8 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.solveryapp_mvp.Generator.generateId
-import com.example.solveryapp_mvp.StoreRepository.Companion.create
+import com.example.solveryapp_mvp.*
+import com.example.solveryapp_mvp.entity.ProductViewState
+import com.example.solveryapp_mvp.presenter.StorePresenter
+import com.example.solveryapp_mvp.view.adapter.OnProductDeleted
+import com.example.solveryapp_mvp.view.adapter.OnProductSelected
+import com.example.solveryapp_mvp.view.adapter.ProductAdapter
 
 
 const val PRODUCT = "KEY_PRODUCT"
@@ -31,9 +34,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
     private val adapter = ProductAdapter(this, this)
 
-    /*
 
-     */
     lateinit var productList: RecyclerView
     lateinit var addButton: Button
     lateinit var progress: ProgressBar

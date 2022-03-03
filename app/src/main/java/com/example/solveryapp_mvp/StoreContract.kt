@@ -1,5 +1,8 @@
 package com.example.solveryapp_mvp
 
+import com.example.solveryapp_mvp.entity.Product
+import com.example.solveryapp_mvp.entity.ProductViewState
+
 interface StoreContract {
 
     interface View{

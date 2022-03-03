@@ -1,4 +1,6 @@
-package com.example.solveryapp_mvp
+package com.example.solveryapp_mvp.presenter
+
+import com.example.solveryapp_mvp.StoreContract
 
 class StorePresenter(
     private val view: StoreContract.View,

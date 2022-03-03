@@ -1,4 +1,4 @@
-package com.example.solveryapp_mvp
+package com.example.solveryapp_mvp.view
 
 import android.content.Intent
 import android.os.Build
@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.solveryapp_mvp.R
+import com.example.solveryapp_mvp.entity.ProductViewState
 import java.time.OffsetDateTime
 
 class EditActivity : AppCompatActivity() {
