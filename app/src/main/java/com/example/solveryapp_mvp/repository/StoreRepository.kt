@@ -33,7 +33,4 @@ class StoreRepository: StoreContract.Repository {
 
     override fun load(): List<Product> = productList
 
-    companion object{
-        fun create() = StoreRepository()
-    }
 }

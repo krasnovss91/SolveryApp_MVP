@@ -1,6 +1,8 @@
 package com.example.solveryapp_mvp.presenter
 
 import com.example.solveryapp_mvp.StoreContract
+import com.example.solveryapp_mvp.repository.StoreRepository
+import com.example.solveryapp_mvp.view.StoreActivity
 
 class StorePresenter(
     private val view: StoreContract.View,
@@ -22,5 +24,9 @@ class StorePresenter(
     override fun reload() {
         view.hideError()
         load()
+    }
+
+    companion object{
+        fun create(storeActivity: StoreActivity) = StoreRepository()
     }
 }

@@ -13,7 +13,6 @@ import com.example.solveryapp_mvp.*
 import com.example.solveryapp_mvp.entity.Product
 import com.example.solveryapp_mvp.entity.ProductViewState
 import com.example.solveryapp_mvp.presenter.StorePresenter
-import com.example.solveryapp_mvp.repository.StoreRepository.Companion.create
 import com.example.solveryapp_mvp.view.adapter.OnProductDeleted
 import com.example.solveryapp_mvp.view.adapter.OnProductSelected
 import com.example.solveryapp_mvp.view.adapter.ProductAdapter
@@ -54,15 +53,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
         SetUpViews()
         presenter.load()
-/*
-        findViewById<RecyclerView>(R.id.productList).apply {
-            layoutManager = LinearLayoutManager(this@StoreActivity)
-            adapter = this@StoreActivity.adapter
-            this@StoreActivity.adapter.setProducts(productList)
 
-        }
-
- */
 
 
         val addButton = findViewById<Button>(R.id.addProduct)
