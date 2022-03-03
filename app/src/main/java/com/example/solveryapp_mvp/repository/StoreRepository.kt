@@ -6,6 +6,7 @@ import com.example.solveryapp_mvp.view.Generator
 import com.example.solveryapp_mvp.R
 import com.example.solveryapp_mvp.StoreContract
 import com.example.solveryapp_mvp.entity.Product
+import com.example.solveryapp_mvp.entity.ProductViewState
 import java.time.OffsetDateTime
 
 class StoreRepository: StoreContract.Repository {
@@ -32,5 +33,14 @@ class StoreRepository: StoreContract.Repository {
     )
 
     override fun load(): List<Product> = productList
+
+    override fun reload() {
+        load()
+    }
+
+    override fun delete(productViewState: ProductViewState) {
+        productList.remove(productViewState)
+
+    }
 
 }
