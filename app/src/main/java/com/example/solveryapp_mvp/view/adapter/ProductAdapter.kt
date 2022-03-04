@@ -26,7 +26,7 @@ class ProductAdapter(
 
     private var products = emptyList<ProductViewState>()
 
-    fun setProducts(productsViewStates: List<ProductViewState>) {//в StoreActivity несоответствие типов этого метода
+    fun setProducts(productsViewStates: List<ProductViewState>) {
         this.products = productsViewStates
         notifyDataSetChanged()
     }

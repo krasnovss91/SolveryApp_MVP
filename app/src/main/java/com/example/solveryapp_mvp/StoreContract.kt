@@ -32,7 +32,7 @@ interface StoreContract {
 
     }
 
-    interface Repository{
+    interface Repository{//здесь только Product
         fun load():List<Product>
         fun delete(product: Product)
         fun reload()
