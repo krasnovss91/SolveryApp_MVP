@@ -17,7 +17,7 @@ interface StoreContract {
 
         fun hideContent()
 
-        fun showContent(content: List<Product>)//здесь всё правильно
+        fun setContent(content: List<ProductViewState>)//view должен работать только с ProductViewState
 
         fun showContent(show: Boolean)
 
