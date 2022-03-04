@@ -134,9 +134,9 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         showContent(false)
     }
 
-    override fun showContent(content: List<Product>) {
+    override fun setContent(content: List<ProductViewState>) {
       showContent(true)
-            adapter.setProducts(content)//несоответсвие типов
+            adapter.setProducts(content)
     }
 
     override fun showContent(show: Boolean) {

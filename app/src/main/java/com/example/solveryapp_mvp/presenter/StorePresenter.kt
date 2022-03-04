@@ -16,9 +16,9 @@ class StorePresenter(
             val productsViewState: List<ProductViewState> = products.map {
                 ProductViewState()//что передаём в конструктор?
             }
-            //view.setContent(productsViewState) -реализовать
+            view.setContent(productsViewState)
             view.hideProgress()
-            view.showContent(products)
+          //  view.showContent(products)
         } catch (e: Throwable) {
             view.hideProgress()
             view.showError()
