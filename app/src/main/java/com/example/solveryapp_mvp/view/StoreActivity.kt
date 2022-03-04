@@ -110,7 +110,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
 
     override fun onDelete(productViewState: ProductViewState) {
-        presenter.delete(productViewState)
+      //  presenter.delete(productViewState)
     }
 
     override fun showProgress() {
@@ -136,7 +136,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
     override fun showContent(content: List<Product>) {
       showContent(true)
-      adapter.setProducts(content)//несоответсвие типов
+            adapter.setProducts(content)//несоответсвие типов
     }
 
     override fun showContent(show: Boolean) {

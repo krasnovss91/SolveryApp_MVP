@@ -35,3 +35,6 @@ data class ProductDto(
     val offsetDateTime: OffsetDateTime,
     val metadata: Metadata
 ):Parcelable
+
+@Parcelize
+class Metadata: Parcelable

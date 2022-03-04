@@ -14,7 +14,7 @@ class StorePresenter(
             view.showProgress()
             val products = repository.load()
             val productsViewState: List<ProductViewState> = products.map {
-                ProductViewState()//что передаём через конструктор?
+                ProductViewState()//что передаём в конструктор?
             }
             //view.setContent(productsViewState) -реализовать
             view.hideProgress()
