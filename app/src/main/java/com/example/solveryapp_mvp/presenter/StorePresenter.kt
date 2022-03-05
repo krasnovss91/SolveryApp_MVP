@@ -4,6 +4,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import com.example.solveryapp_mvp.R
 import com.example.solveryapp_mvp.StoreContract
+import com.example.solveryapp_mvp.entity.Product
 import com.example.solveryapp_mvp.entity.ProductViewState
 import com.example.solveryapp_mvp.repository.StoreRepository
 import com.example.solveryapp_mvp.view.Generator
@@ -27,15 +28,27 @@ class StorePresenter(
                     OffsetDateTime.now(),
                 )
                 ProductViewState(
-                    R.drawable.ic_launcher_background, "Яйца", "с.Зелёное", 22, Generator.generateId(),
+                    R.drawable.ic_launcher_background,
+                    "Яйца",
+                    "с.Зелёное",
+                    22,
+                    Generator.generateId(),
                     OffsetDateTime.now()
                 )
                 ProductViewState(
-                    R.drawable.ic_launcher_foreground, "Чай", "ИП Абрамян А.Г.", 9, Generator.generateId(),
+                    R.drawable.ic_launcher_foreground,
+                    "Чай",
+                    "ИП Абрамян А.Г.",
+                    9,
+                    Generator.generateId(),
                     OffsetDateTime.now()
                 )
                 ProductViewState(
-                    R.drawable.ic_launcher_foreground, "Молоко", "с.Зелёное", 20, Generator.generateId(),
+                    R.drawable.ic_launcher_foreground,
+                    "Молоко",
+                    "с.Зелёное",
+                    20,
+                    Generator.generateId(),
                     OffsetDateTime.now()
                 )
                 ProductViewState(
@@ -46,7 +59,7 @@ class StorePresenter(
             }
             view.setContent(productsViewState)
             view.hideProgress()
-          //  view.showContent(products)
+            //  view.showContent(products)
         } catch (e: Throwable) {
             view.hideProgress()
             view.showError()
@@ -54,8 +67,23 @@ class StorePresenter(
 
     }
 
-    fun productMapper(productsViewState: List<ProductViewState>){
-        val products = productsViewState.map {  }
+    fun productMapper(productsViewState: List<ProductViewState>): List<Product> {
+        val products = productsViewState.map { productViewState ->
+            Product(
+                productViewState.id,
+                productViewState.name,
+                productViewState.producer,
+                productViewState.cost,
+                productViewState.avatar,
+                productViewState.offsetDateTime
+            )
+        }
+        return products
+        /*
+        .map { viewState ->
+Product(viewState.id, ...)
+}
+         */
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
