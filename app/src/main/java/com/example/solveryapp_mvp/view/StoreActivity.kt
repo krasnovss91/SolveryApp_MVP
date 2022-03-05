@@ -55,7 +55,6 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         presenter.load()
 
 
-
         val addButton = findViewById<Button>(R.id.addProduct)
         progress = findViewById(R.id.progress)
         errorTitle = findViewById(R.id.errorTitle)
@@ -86,28 +85,33 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         resultCode: Int,
         data: Intent?
     ) {
-        super.onActivityResult(requestCode, resultCode, data)// достать нужный экземпляр класса отсюда
+        super.onActivityResult(
+            requestCode,
+            resultCode,
+            data
+        )// достать нужный экземпляр класса отсюда
         if (data == null) {
             return
         }
         when (requestCode) {//реализовать реакцию на эти коды состояний
             REQUEST_CODE_ADD -> {//добавляем элемент в список и обновляем его
+
+                val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
                 /*
-                 val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
                 productList.add(product)
                 adapter.setProducts(productList)
                  */
 
             }
             REQUEST_CODE_EDIT -> {//берём элемент из списка, обновляем его, и обновляем список
-                /*
 
-                val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
+                val product = data.getParcelableExtra<Product>(PRODUCT)?: return
+
+                /*
                 val oldProduct = productList.find { it.id == product.id } ?: return
                 val position = productList.indexOf(oldProduct)
                 productList[position] = product
                 adapter.setProducts(productList)
-
                  */
 
             }
@@ -124,6 +128,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
 
     override fun onDelete(productViewState: ProductViewState) {//смапить product в презентере
+        presenter.productMapper()
         presenter.delete(productViewState)
     }
 
@@ -149,8 +154,8 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     }
 
     override fun setContent(content: List<ProductViewState>) {
-      showContent(true)
-            adapter.setProducts(content)
+        showContent(true)
+        adapter.setProducts(content)
     }
 
     override fun showContent(show: Boolean) {

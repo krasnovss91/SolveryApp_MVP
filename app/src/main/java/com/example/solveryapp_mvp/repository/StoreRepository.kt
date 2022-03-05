@@ -38,8 +38,8 @@ class StoreRepository: StoreContract.Repository {
         load()
     }
 
-    override fun delete(product: Product) {//достать отсюда product и удалить его из списка
-        productList.remove(product)//как вариант- использовать itemDeleted в адаптере
+    override fun delete(product: Product) {
+        productList.remove(product)
 
     }
 

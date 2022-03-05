@@ -19,6 +19,7 @@ class StorePresenter(
         try {
             view.showProgress()
             val products = repository.load()
+            //мапится таким образом
             val productsViewState: List<ProductViewState> = products.map {
                 ProductViewState(
                     R.drawable.ic_launcher_background, "Картофель", "ООО Интегра", 18,
@@ -51,6 +52,10 @@ class StorePresenter(
             view.showError()
         }
 
+    }
+
+    fun productMapper(productsViewState: List<ProductViewState>){
+        val products = productsViewState.map {  }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
