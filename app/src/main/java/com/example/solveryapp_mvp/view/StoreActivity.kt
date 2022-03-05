@@ -86,15 +86,29 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         resultCode: Int,
         data: Intent?
     ) {
-        super.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(requestCode, resultCode, data)// достать нужный экземпляр класса отсюда
         if (data == null) {
             return
         }
         when (requestCode) {//реализовать реакцию на эти коды состояний
             REQUEST_CODE_ADD -> {//добавляем элемент в список и обновляем его
+                /*
+                 val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
+                productList.add(product)
+                adapter.setProducts(productList)
+                 */
 
             }
             REQUEST_CODE_EDIT -> {//берём элемент из списка, обновляем его, и обновляем список
+                /*
+
+                val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
+                val oldProduct = productList.find { it.id == product.id } ?: return
+                val position = productList.indexOf(oldProduct)
+                productList[position] = product
+                adapter.setProducts(productList)
+
+                 */
 
             }
         }
@@ -109,8 +123,8 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     }
 
 
-    override fun onDelete(productViewState: ProductViewState) {
-      //  presenter.delete(productViewState)
+    override fun onDelete(productViewState: ProductViewState) {//достать product из productViewState и передать его м метод репозитория ниже
+        presenter.delete(product)
     }
 
     override fun showProgress() {
