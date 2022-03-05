@@ -123,7 +123,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     }
 
 
-    override fun onDelete(productViewState: ProductViewState) {
+    override fun onDelete(productViewState: ProductViewState) {//смапить product в презентере
         presenter.delete(productViewState)
     }
 
