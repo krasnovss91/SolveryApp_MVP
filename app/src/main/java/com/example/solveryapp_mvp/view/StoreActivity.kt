@@ -123,8 +123,8 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     }
 
 
-    override fun onDelete(productViewState: ProductViewState) {//достать product из productViewState и передать его м метод репозитория ниже
-        presenter.delete(product)
+    override fun onDelete(productViewState: ProductViewState) {
+        presenter.delete(productViewState)
     }
 
     override fun showProgress() {

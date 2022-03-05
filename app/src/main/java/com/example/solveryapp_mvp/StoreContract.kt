@@ -34,7 +34,7 @@ interface StoreContract {
 
     interface Repository{
         fun load():List<Product>
-        fun delete(product: Product)
+        fun delete(productViewState: ProductViewState)
         fun reload()
 
     }

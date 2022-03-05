@@ -9,7 +9,7 @@ import com.example.solveryapp_mvp.entity.Product
 import com.example.solveryapp_mvp.entity.ProductViewState
 import java.time.OffsetDateTime
 
-class StoreRepository: StoreContract.Repository {// здесь только экземпляры класса Product
+class StoreRepository: StoreContract.Repository {
 
     @RequiresApi(Build.VERSION_CODES.O)
     val productList = mutableListOf(
@@ -38,8 +38,8 @@ class StoreRepository: StoreContract.Repository {// здесь только эк
         load()
     }
 
-    override fun delete(product: Product) {
-        productList.remove(product)
+    override fun delete(productViewState: ProductViewState) {//достать отсюда product и удалить его из списка
+        productList.remove(productViewState)//как вариант- использовать itemDeleted в адаптере
 
     }
 
