@@ -29,7 +29,7 @@ interface StoreContract {
     interface Presenter{
         fun load()
         fun reload()
-
+        fun productMapper()//этот метод видит только в репозитории
     }
 
     interface Repository{
