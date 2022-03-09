@@ -97,8 +97,9 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
             REQUEST_CODE_ADD -> {//добавляем элемент в список и обновляем его
 
                 val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
+
                 /*
-                productList.add(product)
+                productList.add(product)//
                 adapter.setProducts(productList)
                  */
 
