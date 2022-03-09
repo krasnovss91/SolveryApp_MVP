@@ -29,7 +29,7 @@ interface StoreContract {
     interface Presenter{
         fun load()
         fun reload()
-      //  fun productMapper()//этот метод здесь не нужен, сделать его приватным в StorePresenter
+        fun onDelete(productViewState: ProductViewState)
     }
 
     interface Repository{
