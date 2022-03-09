@@ -129,8 +129,10 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
 
     override fun onDelete(productViewState: ProductViewState) {//смапить product в презентере
-        presenter.productMapper()// для удаления- один элемент
-        presenter.delete(productViewState)
+        //presenter.productMapper()// для удаления- один элемент
+       // presenter.delete(productViewState)
+        presenter.mapToProduct(productViewState)
+        presenter.delete()//сюда результат mapToProduct
     }
 
     override fun showProgress() {
