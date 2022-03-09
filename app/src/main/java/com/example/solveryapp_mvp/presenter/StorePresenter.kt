@@ -37,9 +37,13 @@ class StorePresenter(
         }
 
     }
-    private fun mapToProduct(productViewState: ProductViewState){//а теперь вызовем его в методе delete
-        Product(productViewState.avatar,productViewState.name,productViewState.producer, productViewState.cost,
+    private fun mapToProduct(productViewState: ProductViewState):Product{
+       return Product(productViewState.avatar,productViewState.name,productViewState.producer, productViewState.cost,
         productViewState.id,productViewState.offsetDateTime)
+    }
+
+    override fun onDelete(productViewState: ProductViewState) {
+        repository.delete(mapToProduct(productViewState))
     }
 /*
   private  fun productMapper(productsViewState: List<ProductViewState>): List<Product> {
