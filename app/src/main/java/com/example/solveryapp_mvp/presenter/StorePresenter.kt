@@ -20,12 +20,14 @@ class StorePresenter(
             view.showProgress()
             val products = repository.load()
 
-            val productsViewState: List<ProductViewState> = products.map {
-                ProductViewState(//задать маппинг. Пройтись по списку и смапить каждый элемент
-                /*  products.forEach {
-
-                  }
-                 */
+            val productsViewState: List<ProductViewState> = products.map { product ->
+                ProductViewState(
+                product.avatar,
+                product.name,
+                product.producer,
+                product.cost,
+                product.id,
+                 product.offsetDateTime
                 )
             }
             view.setContent(productsViewState)
@@ -45,23 +47,7 @@ class StorePresenter(
     override fun onDelete(productViewState: ProductViewState) {
         repository.delete(mapToProduct(productViewState))
     }
-/*
-  private  fun productMapper(productsViewState: List<ProductViewState>): List<Product> {
-        val products = productsViewState.map { productViewState ->
-            Product(
-                productViewState.id,
-                productViewState.name,
-                productViewState.producer,
-                productViewState.cost,
-                productViewState.avatar,
-                productViewState.offsetDateTime
-            )
-        }
-        return products
 
-    }
-
- */
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun reload() {
