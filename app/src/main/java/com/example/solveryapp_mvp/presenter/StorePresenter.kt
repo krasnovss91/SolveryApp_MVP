@@ -70,6 +70,6 @@ class StorePresenter(
     }
 
     companion object {
-        fun create(storeActivity: StoreActivity) = StoreRepository()
+        fun create(storeActivity: StoreActivity) = StorePresenter
     }
 }
