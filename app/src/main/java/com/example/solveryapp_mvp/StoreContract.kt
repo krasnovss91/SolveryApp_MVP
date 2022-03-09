@@ -17,7 +17,7 @@ interface StoreContract {
 
         fun hideContent()
 
-        fun setContent(content: List<ProductViewState>)//view должен работать только с ProductViewState
+        fun setContent(content: List<ProductViewState>)
 
         fun showContent(show: Boolean)
 
@@ -29,7 +29,7 @@ interface StoreContract {
     interface Presenter{
         fun load()
         fun reload()
-        fun productMapper()//этот метод видит только в репозитории
+      //  fun productMapper()//этот метод здесь не нужен, сделать его приватным в StorePresenter
     }
 
     interface Repository{

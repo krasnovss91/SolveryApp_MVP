@@ -12,6 +12,7 @@ class StorePresenter(
     private val view: StoreContract.View,
     private val repository: StoreContract.Repository
 ) : StoreContract.Presenter {
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun load() {
         try {
@@ -36,7 +37,7 @@ class StorePresenter(
 
     }
 
-    fun productMapper(productsViewState: List<ProductViewState>): List<Product> {
+  private fun productMapper(productsViewState: List<ProductViewState>): List<Product> {
         val products = productsViewState.map { productViewState ->
             Product(
                 productViewState.id,
