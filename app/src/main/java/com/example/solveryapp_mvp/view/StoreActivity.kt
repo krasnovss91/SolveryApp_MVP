@@ -43,7 +43,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     lateinit var reloadButton: Button
 
     private val presenter by lazy {
-        StorePresenter.create(this)
+        StorePresenter.create(this,)
     }
 
 
