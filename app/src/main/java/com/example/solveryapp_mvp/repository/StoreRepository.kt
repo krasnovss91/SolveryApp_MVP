@@ -44,7 +44,7 @@ class StoreRepository: StoreContract.Repository {
     }
 
     companion object{
-        fun create() = StoreRepository
+        fun create() = StoreRepository()
     }
 
 }
