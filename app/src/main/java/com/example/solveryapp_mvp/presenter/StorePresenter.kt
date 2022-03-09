@@ -13,6 +13,7 @@ class StorePresenter(
     private val repository: StoreContract.Repository
 ) : StoreContract.Presenter {
 
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun load() {
         try {
@@ -36,8 +37,12 @@ class StorePresenter(
         }
 
     }
-
-  private fun productMapper(productsViewState: List<ProductViewState>): List<Product> {
+    private fun mapToProduct(productViewState: ProductViewState){//а теперь вызовем его в методе delete
+        Product(productViewState.avatar,productViewState.name,productViewState.producer, productViewState.cost,
+        productViewState.id,productViewState.offsetDateTime)
+    }
+/*
+  private  fun productMapper(productsViewState: List<ProductViewState>): List<Product> {
         val products = productsViewState.map { productViewState ->
             Product(
                 productViewState.id,
@@ -51,6 +56,8 @@ class StorePresenter(
         return products
 
     }
+
+ */
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun reload() {
