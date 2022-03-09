@@ -1,10 +1,12 @@
 package com.example.solveryapp_mvp.view
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +15,7 @@ import com.example.solveryapp_mvp.*
 import com.example.solveryapp_mvp.entity.Product
 import com.example.solveryapp_mvp.entity.ProductViewState
 import com.example.solveryapp_mvp.presenter.StorePresenter
+import com.example.solveryapp_mvp.repository.StoreRepository
 import com.example.solveryapp_mvp.view.adapter.OnProductDeleted
 import com.example.solveryapp_mvp.view.adapter.OnProductSelected
 import com.example.solveryapp_mvp.view.adapter.ProductAdapter
@@ -42,11 +45,16 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     lateinit var errorTitle: TextView
     lateinit var reloadButton: Button
 
+    private val repository by lazy {
+        StoreRepository.create()
+    }
+
     private val presenter by lazy {
-        StorePresenter.create(this,)
+        StorePresenter.create(this, repository)
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
