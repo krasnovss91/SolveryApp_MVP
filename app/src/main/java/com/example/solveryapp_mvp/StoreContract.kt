@@ -30,7 +30,7 @@ interface StoreContract {
         fun load()
         fun reload()
         fun addProduct(productViewState: ProductViewState)
-        fun updateProduct(productViewState: ProductViewState)
+        fun updateProducts(productViewState: ProductViewState)
         fun onDelete(productViewState: ProductViewState)
     }
 

@@ -61,7 +61,7 @@ class StorePresenter(
         //обновить список
     }
 
-    private fun updateProducts(productViewState: ProductViewState) {
+    override fun updateProducts(productViewState: ProductViewState) {
 
     }
 
