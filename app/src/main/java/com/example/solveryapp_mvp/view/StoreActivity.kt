@@ -102,8 +102,9 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
             return
         }
         when (requestCode) {//реализовать реакцию на эти коды состояний
-            REQUEST_CODE_ADD -> {//добавляем элемент в список и обновляем его
-
+            REQUEST_CODE_ADD -> {
+//ловим экземпляр product, мапим в productViewState, добаввляем в список и обновляем его
+                //activity ничего не должно знать о преобразованиях, просто вызвать соответствующий метод presenter'а
                 val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
 
                 /*
