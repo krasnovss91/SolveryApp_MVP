@@ -42,7 +42,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
     lateinit var productList: RecyclerView
     lateinit var addButton: Button
-//    lateinit var progress: ProgressBar
+    lateinit var progress: ProgressBar
     lateinit var errorTitle: TextView
     lateinit var reloadButton: Button
 
