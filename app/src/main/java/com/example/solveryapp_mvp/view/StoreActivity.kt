@@ -41,7 +41,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
     lateinit var productList: RecyclerView
     lateinit var addButton: Button
-    lateinit var progress: ProgressBar
+//    lateinit var progress: ProgressBar
     lateinit var errorTitle: TextView
     lateinit var reloadButton: Button
 
@@ -64,7 +64,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
 
         val addButton = findViewById<Button>(R.id.addProduct)
-        progress = findViewById(R.id.progress)
+     //   progress = findViewById(R.id.progress)
         errorTitle = findViewById(R.id.errorTitle)
         reloadButton = findViewById(R.id.reload)
 
@@ -126,7 +126,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     override fun onDelete(productViewState: ProductViewState) {
         presenter.onDelete(productViewState)
     }
-
+/*
     override fun showProgress() {
         progress.isVisible = true
     }
@@ -135,6 +135,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         progress.isVisible = true
     }
 
+ */
     override fun showError() {
         showError(true)
     }

@@ -17,7 +17,7 @@ class StorePresenter(
     @RequiresApi(Build.VERSION_CODES.O)
     override fun load() {
         try {
-            view.showProgress()
+          //  view.showProgress()
             val products = repository.load()//список, в который добавлять элементы
 
             val productsViewState: List<ProductViewState> = products.map { product ->
@@ -31,10 +31,10 @@ class StorePresenter(
                 )
             }
             view.setContent(productsViewState)
-            view.hideProgress()
+          //  view.hideProgress()
             //  view.showContent(products)
         } catch (e: Throwable) {
-            view.hideProgress()
+          //  view.hideProgress()
             view.showError()
         }
 
