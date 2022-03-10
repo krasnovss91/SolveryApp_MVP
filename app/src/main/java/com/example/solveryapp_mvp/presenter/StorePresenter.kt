@@ -55,10 +55,11 @@ class StorePresenter(
         repository.delete(mapToProduct(productViewState))
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun addProduct(productViewState: ProductViewState) {
         val products = repository.load()
         products.add(mapToProduct(productViewState))
-        //обновить список
+        reload() //обновить список
     }
 
     override fun updateProducts(productViewState: ProductViewState) {
