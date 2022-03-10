@@ -19,6 +19,7 @@ import com.example.solveryapp_mvp.repository.StoreRepository
 import com.example.solveryapp_mvp.view.adapter.OnProductDeleted
 import com.example.solveryapp_mvp.view.adapter.OnProductSelected
 import com.example.solveryapp_mvp.view.adapter.ProductAdapter
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 const val PRODUCT = "KEY_PRODUCT"
@@ -110,6 +111,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
             }
             REQUEST_CODE_EDIT -> {
                 val product = data.getParcelableExtra<ProductViewState>(PRODUCT)?: return
+                presenter.updateProducts(product)
             }
         }
 
@@ -126,7 +128,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     override fun onDelete(productViewState: ProductViewState) {
         presenter.onDelete(productViewState)
     }
-/*
+
     override fun showProgress() {
         progress.isVisible = true
     }
@@ -135,7 +137,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         progress.isVisible = true
     }
 
- */
+
     override fun showError() {
         showError(true)
     }

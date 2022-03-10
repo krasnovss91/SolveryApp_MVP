@@ -6,12 +6,10 @@ import com.example.solveryapp_mvp.entity.ProductViewState
 interface StoreContract {
 
     interface View{
-/*
+
         fun showProgress()
 
         fun hideProgress()
-
- */
 
         fun showError()
 
