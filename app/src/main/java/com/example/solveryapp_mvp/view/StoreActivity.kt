@@ -61,14 +61,14 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         setContentView(R.layout.activity_main)
 
         SetUpViews()
-        presenter.load()
-
+       // presenter.load()//вызвать после инициализации всех view
 
         val addButton = findViewById<Button>(R.id.addProduct)
-     //   progress = findViewById(R.id.progress)
+        progress = findViewById(R.id.progress)
         errorTitle = findViewById(R.id.errorTitle)
         reloadButton = findViewById(R.id.reload)
 
+        presenter.load()
 
         val saveIntent = Intent(this, ProductActivity::class.java)
 
