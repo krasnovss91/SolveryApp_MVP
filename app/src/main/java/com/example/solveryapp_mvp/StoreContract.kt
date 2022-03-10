@@ -33,7 +33,8 @@ interface StoreContract {
     }
 
     interface Repository{
-        fun load():List<Product>
+        //fun load():List<Product>
+        fun load():MutableList<Product>
         fun delete(product: Product)
         fun reload()
 

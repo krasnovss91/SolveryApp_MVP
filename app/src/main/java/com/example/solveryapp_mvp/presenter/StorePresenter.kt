@@ -18,7 +18,7 @@ class StorePresenter(
     override fun load() {
         try {
             view.showProgress()
-            val products = repository.load()
+            val products = repository.load()//список, в который добавлять элементы
 
             val productsViewState: List<ProductViewState> = products.map { product ->
                 ProductViewState(
@@ -39,6 +39,7 @@ class StorePresenter(
         }
 
     }
+
     private fun mapToProduct(productViewState: ProductViewState):Product{
        return Product(productViewState.avatar,productViewState.name,productViewState.producer, productViewState.cost,
         productViewState.id,productViewState.offsetDateTime)
@@ -48,6 +49,15 @@ class StorePresenter(
         repository.delete(mapToProduct(productViewState))
     }
 
+    private fun addProduct(productViewState: ProductViewState){
+        val products = repository.load()
+        products.add(mapToProduct(productViewState))
+       //обновить список
+    }
+
+    private fun updateProducts(productViewState: ProductViewState){
+
+    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun reload() {
