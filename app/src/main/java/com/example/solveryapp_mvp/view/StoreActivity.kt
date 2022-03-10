@@ -106,6 +106,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 //ловим экземпляр product, мапим в productViewState, добаввляем в список и обновляем его
                 //activity ничего не должно знать о преобразованиях, просто вызвать соответствующий метод presenter'а
                 val product = data.getParcelableExtra<ProductViewState>(PRODUCT) ?: return
+              //  presenter.addProduct()
 
                 /*
                 productList.add(product)//

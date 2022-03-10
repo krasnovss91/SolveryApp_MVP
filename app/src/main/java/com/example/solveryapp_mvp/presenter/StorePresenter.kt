@@ -22,12 +22,12 @@ class StorePresenter(
 
             val productsViewState: List<ProductViewState> = products.map { product ->
                 ProductViewState(
-                product.avatar,
-                product.name,
-                product.producer,
-                product.cost,
-                product.id,
-                 product.offsetDateTime
+                    product.avatar,
+                    product.name,
+                    product.producer,
+                    product.cost,
+                    product.id,
+                    product.offsetDateTime
                 )
             }
             view.setContent(productsViewState)
@@ -40,22 +40,28 @@ class StorePresenter(
 
     }
 
-    private fun mapToProduct(productViewState: ProductViewState):Product{
-       return Product(productViewState.avatar,productViewState.name,productViewState.producer, productViewState.cost,
-        productViewState.id,productViewState.offsetDateTime)
+    private fun mapToProduct(productViewState: ProductViewState): Product {
+        return Product(
+            productViewState.avatar,
+            productViewState.name,
+            productViewState.producer,
+            productViewState.cost,
+            productViewState.id,
+            productViewState.offsetDateTime
+        )
     }
 
     override fun onDelete(productViewState: ProductViewState) {
         repository.delete(mapToProduct(productViewState))
     }
 
-    private fun addProduct(productViewState: ProductViewState){
+    override fun addProduct(productViewState: ProductViewState) {
         val products = repository.load()
         products.add(mapToProduct(productViewState))
-       //обновить список
+        //обновить список
     }
 
-    private fun updateProducts(productViewState: ProductViewState){
+    private fun updateProducts(productViewState: ProductViewState) {
 
     }
 
@@ -66,7 +72,8 @@ class StorePresenter(
     }
 
     companion object {
-        fun create(storeActivity: StoreActivity, repository: StoreRepository) = StorePresenter(storeActivity,repository)
+        fun create(storeActivity: StoreActivity, repository: StoreRepository) =
+            StorePresenter(storeActivity, repository)
 
     }
 }

@@ -29,6 +29,8 @@ interface StoreContract {
     interface Presenter{
         fun load()
         fun reload()
+        fun addProduct(productViewState: ProductViewState)
+        fun updateProduct(productViewState: ProductViewState)
         fun onDelete(productViewState: ProductViewState)
     }
 
