@@ -31,10 +31,10 @@ class StorePresenter(
                 )
             }
             view.setContent(productsViewState)
-          //  view.hideProgress()
+         //   view.hideProgress()
             //  view.showContent(products)
         } catch (e: Throwable) {
-          //  view.hideProgress()
+        //    view.hideProgress()
             view.showError()
         }
 
