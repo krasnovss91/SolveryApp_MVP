@@ -105,7 +105,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
             REQUEST_CODE_ADD -> {
 //ловим экземпляр product, мапим в productViewState, добаввляем в список и обновляем его
                 //activity ничего не должно знать о преобразованиях, просто вызвать соответствующий метод presenter'а
-                val product = data.getParcelableExtra<Product>(PRODUCT) ?: return
+                val product = data.getParcelableExtra<ProductViewState>(PRODUCT) ?: return
 
                 /*
                 productList.add(product)//
@@ -115,7 +115,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
             }
             REQUEST_CODE_EDIT -> {//берём элемент из списка, обновляем его, и обновляем список
 
-                val product = data.getParcelableExtra<Product>(PRODUCT)?: return
+                val product = data.getParcelableExtra<ProductViewState>(PRODUCT)?: return
 
                 /*
                 val oldProduct = productList.find { it.id == product.id } ?: return
