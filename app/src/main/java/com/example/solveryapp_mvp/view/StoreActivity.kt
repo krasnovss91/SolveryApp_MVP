@@ -88,6 +88,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onActivityResult(
         requestCode: Int,
         resultCode: Int,
@@ -103,23 +104,12 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         }
         when (requestCode) {//реализовать реакцию на эти коды состояний
             REQUEST_CODE_ADD -> {
-//ловим экземпляр product, мапим в productViewState, добаввляем в список и обновляем его
                 //activity ничего не должно знать о преобразованиях, просто вызвать соответствующий метод presenter'а
                 val product = data.getParcelableExtra<ProductViewState>(PRODUCT) ?: return
                 presenter.addProduct(product)
-
             }
-            REQUEST_CODE_EDIT -> {//берём элемент из списка, обновляем его, и обновляем список
-
+            REQUEST_CODE_EDIT -> {
                 val product = data.getParcelableExtra<ProductViewState>(PRODUCT)?: return
-
-                /*
-                val oldProduct = productList.find { it.id == product.id } ?: return
-                val position = productList.indexOf(oldProduct)
-                productList[position] = product
-                adapter.setProducts(productList)
-                 */
-
             }
         }
 
