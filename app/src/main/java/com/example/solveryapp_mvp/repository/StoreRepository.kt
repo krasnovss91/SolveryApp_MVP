@@ -32,7 +32,7 @@ class StoreRepository: StoreContract.Repository {
             OffsetDateTime.now())
     )
 
-    override fun load(): List<Product> = productList
+    override fun load(): MutableList<Product> = productList
 
     override fun reload() {
         load()
