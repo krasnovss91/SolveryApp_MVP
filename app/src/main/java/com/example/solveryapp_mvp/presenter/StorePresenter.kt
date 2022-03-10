@@ -62,15 +62,15 @@ class StorePresenter(
         reload() //обновить список
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun updateProducts(productViewState: ProductViewState) {//берём элемент из списка, обновляем его, и обновляем список
-    /*
+        val products = repository.load()
+        val newProduct = mapToProduct(productViewState)
+        val oldProduct = products.find { it.id == newProduct.id } ?: return
+        val position = products.indexOf(oldProduct)
+        products[position] = newProduct
 
-                val oldProduct = productList.find { it.id == product.id } ?: return
-                val position = productList.indexOf(oldProduct)
-                productList[position] = product
-                adapter.setProducts(productList)
-
-     */
+        reload()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
