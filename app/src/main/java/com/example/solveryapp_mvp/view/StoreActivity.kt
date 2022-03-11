@@ -66,7 +66,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         val addButton = findViewById<Button>(R.id.addProduct)
         progress = findViewById(R.id.progress)
         errorTitle = findViewById(R.id.errorTitle)
-        reloadButton = findViewById(R.id.reload)
+        reloadButton = findViewById(R.id.reload)//продебажить обработку нажатия на эту кнопку
 
         presenter.load()
 
