@@ -18,14 +18,17 @@ class StorePresenter(
 
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun load() {
+    override fun load() {//валится здесь
         try {
             Log.d("Presenter-load","Работает метод Load")
             view.hideContent()
             view.showProgress()
+
+            Log.d("RepositoryLoad", "Работает метод Repository Load")
             val products = repository.load()//список, в который добавлять элементы
 
            // Handler(Looper.getMainLooper()).postDelayed({
+            Log.d("ViewState","Product View State")
             val productsViewState: List<ProductViewState> = products.map { product ->
                 ProductViewState(
                     product.avatar,
@@ -36,6 +39,7 @@ class StorePresenter(
                     product.offsetDateTime
                 )
             }
+            Log.d("SetContent","Работает SetContent- ProductViewState")
             view.setContent(productsViewState)
             view.hideProgress()
            //   view.showContent(products)
