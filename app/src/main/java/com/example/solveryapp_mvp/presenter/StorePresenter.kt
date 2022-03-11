@@ -1,6 +1,8 @@
 package com.example.solveryapp_mvp.presenter
 
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import androidx.annotation.RequiresApi
 import com.example.solveryapp_mvp.StoreContract
 import com.example.solveryapp_mvp.entity.Product
@@ -17,9 +19,11 @@ class StorePresenter(
     @RequiresApi(Build.VERSION_CODES.O)
     override fun load() {
         try {
+            view.hideContent()
             view.showProgress()
             val products = repository.load()//список, в который добавлять элементы
 
+           // Handler(Looper.getMainLooper()).postDelayed({
             val productsViewState: List<ProductViewState> = products.map { product ->
                 ProductViewState(
                     product.avatar,
@@ -33,6 +37,7 @@ class StorePresenter(
             view.setContent(productsViewState)
             view.hideProgress()
            //   view.showContent(products)
+          //  })
         } catch (e: Throwable) {
             view.hideProgress()
             view.showError()
