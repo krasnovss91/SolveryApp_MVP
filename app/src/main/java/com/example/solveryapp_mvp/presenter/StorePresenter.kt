@@ -18,9 +18,9 @@ class StorePresenter(
 
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun load() {//валится здесь
+    override fun load() {
         try {
-            Log.d("Presenter-load","Работает метод Load")
+            Log.d("Presenter-load","Работает метод Load")//валится здесь
             view.hideContent()
             view.showProgress()
 
