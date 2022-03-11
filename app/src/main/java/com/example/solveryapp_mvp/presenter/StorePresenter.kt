@@ -21,7 +21,9 @@ class StorePresenter(
     override fun load() {
         try {
             Log.d("Presenter-load","Работает метод Load")//валится здесь
+            Log.d("hideContent1","Работает HideContent")
             view.hideContent()
+            Log.d("showProgress_1", "Работает showProgress")
             view.showProgress()
 
             Log.d("RepositoryLoad", "Работает метод Repository Load")
