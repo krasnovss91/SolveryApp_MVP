@@ -3,6 +3,7 @@ package com.example.solveryapp_mvp.presenter
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.annotation.RequiresApi
 import com.example.solveryapp_mvp.StoreContract
 import com.example.solveryapp_mvp.entity.Product
@@ -19,6 +20,7 @@ class StorePresenter(
     @RequiresApi(Build.VERSION_CODES.O)
     override fun load() {
         try {
+            Log.d("Presenter-load","Работает метод Load")
             view.hideContent()
             view.showProgress()
             val products = repository.load()//список, в который добавлять элементы
@@ -80,6 +82,7 @@ class StorePresenter(
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun reload() {
+        Log.d("Presenter-reload","Работает метод Reload")
         view.hideError()
         load()
     }

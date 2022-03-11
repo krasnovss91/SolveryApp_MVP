@@ -1,8 +1,10 @@
 package com.example.solveryapp_mvp.view
 
 import android.content.Intent
+import android.nfc.Tag
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -77,6 +79,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         }
 
         reloadButton.setOnClickListener {
+            Log.d("Reload-MainActivity","Нажата кнопка перезагрузки")
             presenter.reload()
         }
     }
@@ -144,6 +147,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
 
     override fun hideError() {
+        Log.d("HideError","Работает метод HideError")
         showError(false)
     }
 
