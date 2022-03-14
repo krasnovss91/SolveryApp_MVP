@@ -1,6 +1,7 @@
 package com.example.solveryapp_mvp.repository
 
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import com.example.solveryapp_mvp.view.Generator
 import com.example.solveryapp_mvp.R
@@ -53,7 +54,8 @@ class StoreRepository : StoreContract.Repository {
     }
 
     override fun delete(product: Product) {
-        productList.remove(product)
+        Log.d("Delete2", "внутри delete - repository")
+        productList.remove(product)//доходит досюда, но не срабатывает
 
     }
 

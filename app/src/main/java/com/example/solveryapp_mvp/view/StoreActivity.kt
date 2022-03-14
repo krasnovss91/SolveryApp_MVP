@@ -134,6 +134,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
 
     override fun onDelete(productViewState: ProductViewState) {
+        Log.d("Delete_1","Нажата кнопка удалить")
         presenter.onDelete(productViewState)
     }
 

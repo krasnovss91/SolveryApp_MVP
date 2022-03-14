@@ -68,6 +68,7 @@ class StorePresenter(
     }
 
     override fun onDelete(productViewState: ProductViewState) {
+        Log.d("Delete2","внутри delete presenter")
         repository.delete(mapToProduct(productViewState))
     }
 
