@@ -165,7 +165,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         Log.d("showContent2","Мы внутри showContent")
         Log.d("isVisible1","productList_isVisible")
         productList.isVisible = show
-        Log.d("isVisible_2","addButton_isVisible")
+        Log.d("isVisible_2","addButton_isVisible")//это уже не отображается
         addButton.isVisible = show
     }
 
