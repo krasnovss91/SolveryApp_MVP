@@ -21,7 +21,7 @@ class StorePresenter(
     override fun load() {//проблемы с методом showContent
         try {
             Log.d("Presenter-load","Работает метод Load")
-            Log.d("hideContent1","Работает HideContent")//валится здесь
+            Log.d("hideContent1","Работает HideContent")//здесь бросает исключение
             view.hideContent()
             Log.d("showProgress_1", "Работает showProgress")
             view.showProgress()
@@ -51,7 +51,7 @@ class StorePresenter(
             Log.d("HideProgress_1","Работает метод HideProgress_1")
             view.hideProgress()
             Log.d("ShowError","Работает метод ShowError")
-            view.showError()
+            view.showError()//останавливается здесь
         }
 
     }
