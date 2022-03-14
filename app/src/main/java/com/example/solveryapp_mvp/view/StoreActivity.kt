@@ -85,10 +85,18 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     }
 
     private fun SetUpViews() {
+
+        productList = findViewById<RecyclerView>(R.id.productList).apply {
+
+        }
+
         findViewById<RecyclerView>(R.id.productList).apply {
             layoutManager = LinearLayoutManager(this@StoreActivity)
             adapter = this@StoreActivity.adapter
+           // this@StoreActivity.adapter.setProducts(productList)
         }
+
+        addButton = findViewById<Button>(R.id.addProduct)
     }
 
 
