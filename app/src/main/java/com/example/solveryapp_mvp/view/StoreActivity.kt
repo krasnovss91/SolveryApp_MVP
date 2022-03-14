@@ -22,6 +22,7 @@ import com.example.solveryapp_mvp.view.adapter.OnProductDeleted
 import com.example.solveryapp_mvp.view.adapter.OnProductSelected
 import com.example.solveryapp_mvp.view.adapter.ProductAdapter
 import kotlinx.android.synthetic.main.activity_main.*
+import java.time.OffsetDateTime
 
 
 const val PRODUCT = "KEY_PRODUCT"
@@ -86,11 +87,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
     private fun SetUpViews() {
 
-        productList = findViewById<RecyclerView>(R.id.productList).apply {
-
-        }
-
-        findViewById<RecyclerView>(R.id.productList).apply {
+      productList =  findViewById<RecyclerView>(R.id.productList).apply {
             layoutManager = LinearLayoutManager(this@StoreActivity)
             adapter = this@StoreActivity.adapter
            // this@StoreActivity.adapter.setProducts(productList)
