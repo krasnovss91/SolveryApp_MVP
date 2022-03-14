@@ -163,7 +163,9 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
     override fun showContent(show: Boolean) {
         Log.d("showContent2","Мы внутри showContent")
+        Log.d("isVisible1","productList_isVisible")
         productList.isVisible = show
+        Log.d("isVisible_2","addButton_isVisible")
         addButton.isVisible = show
     }
 
