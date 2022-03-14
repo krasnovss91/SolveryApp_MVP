@@ -152,6 +152,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     }
 
     override fun hideContent() {
+        Log.d("hideContent2","Мы внутри hideContent")
         showContent(false)
     }
 

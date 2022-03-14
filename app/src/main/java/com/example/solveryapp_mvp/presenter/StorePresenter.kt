@@ -18,7 +18,7 @@ class StorePresenter(
 
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun load() {//проблемы с методом showContent
+    override fun load() {//возможно, не хватает метода showContent
         try {
             Log.d("Presenter-load","Работает метод Load")
             Log.d("hideContent1","Работает HideContent")//здесь бросает исключение
