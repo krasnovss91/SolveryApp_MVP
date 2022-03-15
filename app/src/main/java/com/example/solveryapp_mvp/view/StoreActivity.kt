@@ -90,7 +90,8 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
       productList =  findViewById<RecyclerView>(R.id.productList).apply {
             layoutManager = LinearLayoutManager(this@StoreActivity)
             adapter = this@StoreActivity.adapter
-          this@StoreActivity.adapter.setProducts(repository.productList)//как-то преобразовать во viewState, но activity не должно ничего знать о преобразованиях
+          this@StoreActivity.adapter.setProducts(presenter.mapToViewState(repository.productList))
+                // this@StoreActivity.adapter.setProducts(repository.productList)//как-то преобразовать во viewState, но activity не должно ничего знать о преобразованиях
         }
 
         addButton = findViewById<Button>(R.id.addProduct)
