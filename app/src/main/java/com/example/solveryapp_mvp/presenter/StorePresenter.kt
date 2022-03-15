@@ -49,7 +49,8 @@ class StorePresenter(
             //  })
         } catch (e: Throwable) {
             Log.d("HideProgress_1", "Работает метод HideProgress_1")
-            view.hideProgress()
+            view.showProgress()
+           // view.hideProgress()
             Log.d("ShowError", "Работает метод ShowError")
             view.showError()
         }

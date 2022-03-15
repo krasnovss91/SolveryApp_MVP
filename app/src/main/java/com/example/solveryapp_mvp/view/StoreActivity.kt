@@ -144,7 +144,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     }
 
     override fun hideProgress() {
-        progress.isVisible = true
+        progress.isVisible = false
     }
 
 
