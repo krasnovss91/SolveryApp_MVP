@@ -64,7 +64,6 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         setContentView(R.layout.activity_main)
 
         SetUpViews()
-        // presenter.load()//вызвать после инициализации всех view
 
         val addButton = findViewById<Button>(R.id.addProduct)
         progress = findViewById(R.id.progress)
@@ -94,7 +93,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         }
 
         addButton = findViewById<Button>(R.id.addProduct)
-            //  hideProgress()
+
     }
 
 
@@ -172,7 +171,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         Log.d("showContent2", "Мы внутри showContent")
         Log.d("isVisible1", "productList_isVisible")
         productList.isVisible = show
-        Log.d("isVisible_2", "addButton_isVisible")//это уже не отображается
+        Log.d("isVisible_2", "addButton_isVisible")
         addButton.isVisible = show
     }
 

@@ -55,7 +55,7 @@ class StoreRepository : StoreContract.Repository {
 
     override fun delete(product: Product) {
         Log.d("Delete2", "внутри delete - repository")
-        productList.remove(product)//доходит досюда, но не срабатывает
+        productList.remove(product)
 
     }
 

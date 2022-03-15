@@ -29,7 +29,6 @@ class StorePresenter(
             Log.d("RepositoryLoad", "Работает метод Repository Load")
             val products = repository.load()
 
-            // Handler(Looper.getMainLooper()).postDelayed({
             Log.d("ViewState", "Product View State")
             val productsViewState: List<ProductViewState> = products.map { product ->
                 ProductViewState(
@@ -45,8 +44,6 @@ class StorePresenter(
             view.setContent(productsViewState)
             view.hideProgress()
             view.showContent(true)
-            //  view.showContent(products)
-            //  })
         } catch (e: Throwable) {
             Log.d("HideProgress_1", "Работает метод HideProgress_1")
             view.showProgress()
@@ -99,7 +96,7 @@ class StorePresenter(
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun updateProducts(productViewState: ProductViewState) {//берём элемент из списка, обновляем его, и обновляем список
+    override fun updateProducts(productViewState: ProductViewState) {
         val products = repository.load()
         val newProduct = mapToProduct(productViewState)
         val oldProduct = products.find { it.id == newProduct.id } ?: return
