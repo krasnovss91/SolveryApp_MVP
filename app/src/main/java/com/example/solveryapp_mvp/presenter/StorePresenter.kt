@@ -18,16 +18,16 @@ class StorePresenter(
 
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun load() {//возможно, не хватает метода showContent
+    override fun load() {
         try {
             Log.d("Presenter-load","Работает метод Load")
-            Log.d("hideContent1","Работает HideContent")//здесь бросает исключение
+            Log.d("hideContent1","Работает HideContent")
             view.hideContent()
             Log.d("showProgress_1", "Работает showProgress")
             view.showProgress()
 
             Log.d("RepositoryLoad", "Работает метод Repository Load")
-            val products = repository.load()//список, в который добавлять элементы
+            val products = repository.load()
 
            // Handler(Looper.getMainLooper()).postDelayed({
             Log.d("ViewState","Product View State")
@@ -51,7 +51,7 @@ class StorePresenter(
             Log.d("HideProgress_1","Работает метод HideProgress_1")
             view.hideProgress()
             Log.d("ShowError","Работает метод ShowError")
-            view.showError()//останавливается здесь
+            view.showError()
         }
 
     }

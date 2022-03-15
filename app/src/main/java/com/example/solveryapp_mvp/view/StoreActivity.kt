@@ -69,7 +69,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         val addButton = findViewById<Button>(R.id.addProduct)
         progress = findViewById(R.id.progress)
         errorTitle = findViewById(R.id.errorTitle)
-        reloadButton = findViewById(R.id.reload)//продебажить обработку нажатия на эту кнопку
+        reloadButton = findViewById(R.id.reload)
 
         presenter.load()
 
@@ -91,7 +91,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
             layoutManager = LinearLayoutManager(this@StoreActivity)
             adapter = this@StoreActivity.adapter
           this@StoreActivity.adapter.setProducts(presenter.mapToViewState(repository.productList))
-                // this@StoreActivity.adapter.setProducts(repository.productList)//как-то преобразовать во viewState, но activity не должно ничего знать о преобразованиях
+
         }
 
         addButton = findViewById<Button>(R.id.addProduct)
@@ -112,9 +112,8 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         if (data == null) {
             return
         }
-        when (requestCode) {//реализовать реакцию на эти коды состояний
+        when (requestCode) {
             REQUEST_CODE_ADD -> {
-                //activity ничего не должно знать о преобразованиях, просто вызвать соответствующий метод presenter'а
                 val product = data.getParcelableExtra<ProductViewState>(PRODUCT) ?: return
                 presenter.addProduct(product)
             }
@@ -133,19 +132,8 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         startActivityForResult(editIntent, REQUEST_CODE_EDIT)
     }
 
-    override fun onDelete(productViewState: ProductViewState) {//заново просетить список в адаптер
-       // SetUpViews()
-       // adapter.setProducts(content)
-/*
-        productList =  findViewById<RecyclerView>(R.id.productList).apply {
-            layoutManager = LinearLayoutManager(this@StoreActivity)
-            adapter = this@StoreActivity.adapter
-            // this@StoreActivity.adapter.setProducts(productList)
-        }
+    override fun onDelete(productViewState: ProductViewState) {
 
-        setContent(productList)
-
- */
         Log.d("Delete_1","Нажата кнопка удалить")
         presenter.onDelete(productViewState)
     }
