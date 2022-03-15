@@ -20,8 +20,8 @@ class StorePresenter(
     @RequiresApi(Build.VERSION_CODES.O)
     override fun load() {
         try {
-            Log.d("Presenter-load","Работает метод Load")
-            Log.d("hideContent1","Работает HideContent")
+            Log.d("Presenter-load", "Работает метод Load")
+            Log.d("hideContent1", "Работает HideContent")
             view.hideContent()
             Log.d("showProgress_1", "Работает showProgress")
             view.showProgress()
@@ -29,8 +29,8 @@ class StorePresenter(
             Log.d("RepositoryLoad", "Работает метод Repository Load")
             val products = repository.load()
 
-           // Handler(Looper.getMainLooper()).postDelayed({
-            Log.d("ViewState","Product View State")
+            // Handler(Looper.getMainLooper()).postDelayed({
+            Log.d("ViewState", "Product View State")
             val productsViewState: List<ProductViewState> = products.map { product ->
                 ProductViewState(
                     product.avatar,
@@ -41,16 +41,16 @@ class StorePresenter(
                     product.offsetDateTime
                 )
             }
-            Log.d("SetContent","Работает SetContent- ProductViewState")
+            Log.d("SetContent", "Работает SetContent- ProductViewState")
             view.setContent(productsViewState)
             view.hideProgress()
             view.showContent(true)
             //  view.showContent(products)
-          //  })
+            //  })
         } catch (e: Throwable) {
-            Log.d("HideProgress_1","Работает метод HideProgress_1")
+            Log.d("HideProgress_1", "Работает метод HideProgress_1")
             view.hideProgress()
-            Log.d("ShowError","Работает метод ShowError")
+            Log.d("ShowError", "Работает метод ShowError")
             view.showError()
         }
 
@@ -83,16 +83,18 @@ class StorePresenter(
         return productsViewState
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onDelete(productViewState: ProductViewState) {
-        Log.d("Delete2","внутри delete presenter")
+        Log.d("Delete2", "внутри delete presenter")
         repository.delete(mapToProduct(productViewState))
+        reload()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun addProduct(productViewState: ProductViewState) {
         val products = repository.load()
         products.add(mapToProduct(productViewState))
-        reload() //обновить список
+        reload()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -108,7 +110,7 @@ class StorePresenter(
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun reload() {
-        Log.d("Presenter-reload","Работает метод Reload")
+        Log.d("Presenter-reload", "Работает метод Reload")
         view.hideError()
         load()
     }

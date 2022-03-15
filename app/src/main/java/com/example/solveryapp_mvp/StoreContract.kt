@@ -5,7 +5,7 @@ import com.example.solveryapp_mvp.entity.ProductViewState
 
 interface StoreContract {
 
-    interface View{
+    interface View {
 
         fun showProgress()
 
@@ -26,7 +26,7 @@ interface StoreContract {
 
     }
 
-    interface Presenter{
+    interface Presenter {
         fun load()
         fun reload()
         fun addProduct(productViewState: ProductViewState)
@@ -34,9 +34,9 @@ interface StoreContract {
         fun onDelete(productViewState: ProductViewState)
     }
 
-    interface Repository{
+    interface Repository {
         //fun load():List<Product>
-        fun load():MutableList<Product>//должна быть возможность изменения в процессе
+        fun load(): MutableList<Product>//должна быть возможность изменения в процессе
         fun delete(product: Product)
         fun reload()
 

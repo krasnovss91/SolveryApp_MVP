@@ -64,7 +64,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         setContentView(R.layout.activity_main)
 
         SetUpViews()
-       // presenter.load()//вызвать после инициализации всех view
+        // presenter.load()//вызвать после инициализации всех view
 
         val addButton = findViewById<Button>(R.id.addProduct)
         progress = findViewById(R.id.progress)
@@ -80,18 +80,16 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         }
 
         reloadButton.setOnClickListener {
-            Log.d("Reload-MainActivity","Нажата кнопка перезагрузки")
+            Log.d("Reload-MainActivity", "Нажата кнопка перезагрузки")
             presenter.reload()
         }
     }
 
     private fun SetUpViews() {
 
-      productList =  findViewById<RecyclerView>(R.id.productList).apply {
+        productList = findViewById<RecyclerView>(R.id.productList).apply {
             layoutManager = LinearLayoutManager(this@StoreActivity)
             adapter = this@StoreActivity.adapter
-        //  this@StoreActivity.adapter.setProducts(presenter.mapToViewState(repository.productList))
-         // setContent(presenter.mapToViewState(repository.productList))
 
         }
 
@@ -119,7 +117,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
                 presenter.addProduct(product)
             }
             REQUEST_CODE_EDIT -> {
-                val product = data.getParcelableExtra<ProductViewState>(PRODUCT)?: return
+                val product = data.getParcelableExtra<ProductViewState>(PRODUCT) ?: return
                 presenter.updateProducts(product)
             }
         }
@@ -133,9 +131,10 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         startActivityForResult(editIntent, REQUEST_CODE_EDIT)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onDelete(productViewState: ProductViewState) {
 
-        Log.d("Delete_1","Нажата кнопка удалить")
+        Log.d("Delete_1", "Нажата кнопка удалить")
         presenter.onDelete(productViewState)
     }
 
@@ -154,12 +153,12 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
 
 
     override fun hideError() {
-        Log.d("HideError","Работает метод HideError")
+        Log.d("HideError", "Работает метод HideError")
         showError(false)
     }
 
     override fun hideContent() {
-        Log.d("hideContent2","Мы внутри hideContent")
+        Log.d("hideContent2", "Мы внутри hideContent")
         showContent(false)
     }
 
@@ -169,10 +168,10 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
     }
 
     override fun showContent(show: Boolean) {
-        Log.d("showContent2","Мы внутри showContent")
-        Log.d("isVisible1","productList_isVisible")
+        Log.d("showContent2", "Мы внутри showContent")
+        Log.d("isVisible1", "productList_isVisible")
         productList.isVisible = show
-        Log.d("isVisible_2","addButton_isVisible")//это уже не отображается
+        Log.d("isVisible_2", "addButton_isVisible")//это уже не отображается
         addButton.isVisible = show
     }
 
