@@ -67,6 +67,22 @@ class StorePresenter(
         )
     }
 
+    fun mapToViewState(products: MutableList<Product>): List<ProductViewState> {
+
+        val productsViewState: List<ProductViewState> = products.map { product ->
+            ProductViewState(
+                product.avatar,
+                product.name,
+                product.producer,
+                product.cost,
+                product.id,
+                product.offsetDateTime
+            )
+
+        }
+        return productsViewState
+    }
+
     override fun onDelete(productViewState: ProductViewState) {
         Log.d("Delete2","внутри delete presenter")
         repository.delete(mapToProduct(productViewState))
