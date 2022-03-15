@@ -94,6 +94,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         }
 
         addButton = findViewById<Button>(R.id.addProduct)
+            //  hideProgress()
     }
 
 
