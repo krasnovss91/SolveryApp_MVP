@@ -90,7 +90,7 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
       productList =  findViewById<RecyclerView>(R.id.productList).apply {
             layoutManager = LinearLayoutManager(this@StoreActivity)
             adapter = this@StoreActivity.adapter
-           // this@StoreActivity.adapter.setProducts(productList)
+            this@StoreActivity.adapter.setProducts(repository.productList)//как-то преобразовать во viewState, но activity не должно ничего знать о преобразованиях
         }
 
         addButton = findViewById<Button>(R.id.addProduct)
@@ -132,8 +132,19 @@ class StoreActivity : AppCompatActivity(), OnProductSelected, OnProductDeleted, 
         startActivityForResult(editIntent, REQUEST_CODE_EDIT)
     }
 
+    override fun onDelete(productViewState: ProductViewState) {//заново просетить список в адаптер
+       // SetUpViews()
+       // adapter.setProducts(content)
+/*
+        productList =  findViewById<RecyclerView>(R.id.productList).apply {
+            layoutManager = LinearLayoutManager(this@StoreActivity)
+            adapter = this@StoreActivity.adapter
+            // this@StoreActivity.adapter.setProducts(productList)
+        }
 
-    override fun onDelete(productViewState: ProductViewState) {
+        setContent(productList)
+
+ */
         Log.d("Delete_1","Нажата кнопка удалить")
         presenter.onDelete(productViewState)
     }

@@ -91,7 +91,7 @@ class StorePresenter(
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun reload() {//при нажатии на кнопку работает без проблем
+    override fun reload() {
         Log.d("Presenter-reload","Работает метод Reload")
         view.hideError()
         load()

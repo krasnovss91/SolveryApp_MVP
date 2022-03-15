@@ -26,17 +26,17 @@ class ProductAdapter(
 
     private var products = emptyList<ProductViewState>()
 
-    fun setProducts(productsViewStates: List<ProductViewState>) {
+    fun setProducts(productsViewStates: MutableList<ProductViewState>) {
         this.products = productsViewStates
         notifyDataSetChanged()
     }
 
-    fun itemUpdated(position: Int, productsViewStates: List<ProductViewState>) {
+    fun itemUpdated(position: Int, productsViewStates: MutableList<ProductViewState>) {
         this.products = productsViewStates
         notifyItemChanged(position)
     }
 
-    fun itemDeleted(position: Int, productsViewStates: List<ProductViewState>) {
+    fun itemDeleted(position: Int, productsViewStates: MutableList<ProductViewState>) {
         this.products = productsViewStates
         notifyItemChanged(position)
     }
